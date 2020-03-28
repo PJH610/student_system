@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.letopo.wxuser.mapper.WxUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.letopo.wxuser.entity.WxUser">
+        <id column="u_id" property="uId" />
+        <result column="u_openid" property="uOpenid" />
+        <result column="u_name" property="uName" />
+        <result column="u_face" property="uFace" />
+        <result column="u_random" property="uRandom" />
+        <result column="u_integral" property="uIntegral" />
+        <result column="u_remainder" property="uRemainder" />
+        <result column="u_regtime" property="uRegtime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        u_id, u_openid, u_name, u_face, u_random, u_integral, u_remainder, u_regtime
+    </sql>
+
+</mapper>

@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +44,7 @@ public class NewsController {
             @ApiImplicitParam(name = "size", value = "一页显示的条数")
     })
 
-    @RequiresRoles(value = {"admin"})
+    @RequiresRoles(value = {"admin","admin1","admin123"} ,logical = Logical.OR)
     public R get(
             @RequestParam(defaultValue = "1") long current,
             @RequestParam(defaultValue = "10") long size) {
@@ -65,14 +66,14 @@ public class NewsController {
     @ApiOperation(value = "发布新闻")
     public R post(@RequestBody News news) {
         newsService.save(news);
-        return R.ok("请求成功", news);
+        return R.ok("发布成功", news);
     }
 
 
     @PutMapping
     public R put(@RequestBody News news) {
         newsService.updateById(news);
-        return R.ok("请求成功", news);
+        return R.ok("更新成功", news);
     }
 
     @PatchMapping
@@ -84,6 +85,6 @@ public class NewsController {
     @DeleteMapping("{id}")
     public R delete(@PathVariable Integer id) {
         newsService.removeById(id);
-        return R.ok("请求成功");
+        return R.ok("删除成功");
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.letopo.product.mapper.ProductMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.letopo.product.entity.Product">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="add_time" property="addTime" />
+        <result column="zhaiyao" property="zhaiyao" />
+        <result column="click" property="click" />
+        <result column="img_url" property="imgUrl" />
+        <result column="sell_price" property="sellPrice" />
+        <result column="market_price" property="marketPrice" />
+        <result column="stock_quantity" property="stockQuantity" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, title, add_time, zhaiyao, click, img_url, sell_price, market_price, stock_quantity
+    </sql>
+
+</mapper>
